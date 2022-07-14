@@ -1,0 +1,149 @@
+h1 {
+  font-weight: 400;
+}
+a {
+  color: black;
+}
+.container-fluid {
+  margin: 0 auto;
+  background-color: #c2f3fc;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-width: 50%;
+  height: 100%;
+
+  padding: 0 auto;
+
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.first,
+.second,
+.third {
+  min-width: 500px;
+}
+.first {
+  height: 20%;
+}
+
+.col-3 {
+  display: flex;
+  justify-content: center;
+}
+.col-5 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.second {
+  height: 35%;
+}
+.third {
+  height: 45%;
+}
+.city {
+  align-content: center;
+  margin: 0 auto;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-location-dot {
+  font-size: 80px;
+  color: red;
+  padding: 10px;
+}
+
+.location {
+  display: block;
+  position: absolute;
+  z-index: 10;
+
+  margin: 5px 30px 5px 0px;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  background-color: blue;
+  border: 1px;
+  border-radius: 30px;
+  padding: 10px 30px;
+  transition: all 0.6s ease-in-out;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.location:hover {
+  color: blue;
+  background-color: white;
+}
+.input-group {
+  margin: 10px auto;
+}
+.form-control {
+  position: absolute;
+  z-index: 10;
+}
+.fa-magnifying-glass {
+  color: black;
+}
+.search {
+  background-color: white;
+
+  border: 1px solid #ced4da;
+}
+
+.dateTime {
+  font-size: 38px;
+}
+
+.cloudy {
+  z-index: 0;
+  font-size: 350px;
+  position: relative;
+  top: -230px;
+
+  display: flex;
+  align-items: bottom;
+  justify-content: center;
+}
+.windWet {
+  font-size: 40px;
+}
+.fa-wind {
+  color: #0d6efd;
+}
+.card-body {
+  height: 350px;
+  width: 100%;
+}
+.card-title {
+  font-size: 45px;
+  text-align: center;
+}
+.card-text {
+  font-size: 50px;
+  text-align: center;
+  height: 100%;
+}
+.sign {
+  font-size: 80px;
+}
+#currentCity {
+  text-transform: capitalize;
+  font-size: 90px;
+  color: #454547;
+  padding: 5px 10px;
+}
+#temperature {
+  font-size: 90px;
+  font-weight: 600;
+}
+#units {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+#description {
+  font-weight: 650;
+  font-size: 48px;
+}
