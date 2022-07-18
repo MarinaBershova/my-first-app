@@ -140,8 +140,9 @@ a {
   font-weight: 600;
 }
 #units {
+  position: relative;
+  top: -40px;
   font-size: 30px;
-  padding-bottom: 20px;
 }
 #description {
   font-weight: 650;
