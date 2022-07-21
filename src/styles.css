@@ -19,6 +19,9 @@ a {
   overflow-x: auto;
   overflow-y: auto;
 }
+i {
+  margin: 10px;
+}
 .first,
 .second,
 .third {
@@ -110,9 +113,16 @@ a {
 .windWet {
   font-size: 40px;
 }
-.fa-wind {
-  color: #0d6efd;
+.fa-droplet {
+  color: blue;
 }
+.fa-wind {
+  color: blue;
+}
+.fa-gauge-simple-high {
+  color: blue;
+}
+
 .card-body {
   height: 350px;
   width: 100%;

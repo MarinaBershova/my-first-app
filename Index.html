@@ -26,7 +26,7 @@
             <span id="currentCity"></span>
             <span id="temperature"></span>
             <span id="units">
-              <a href="#" id="celsius">°C</a>
+              <a href="#" id="celsius" class="active">°C</a>
               |
               <a href="#" id="fahrenheit">°F</a>
             </span>
@@ -76,12 +76,17 @@
         </div>
         <div class="col-3">
           <div class="windWet">
-            <p>💧<span id="humidity"> </span>%</p>
+            <p>
+              <i class="fa-solid fa-droplet"></i><span id="humidity"> </span>%
+            </p>
             <p>
               <i class="fa-solid fa-wind"></i>
               <span id="wind"> </span> km/h
             </p>
-            <p>☔ <span id="precipitation"> </span>%</p>
+            <p>
+              <i class="fa-solid fa-gauge-simple-high"></i
+              ><span id="pressure"> </span> hPa
+            </p>
           </div>
         </div>
       </div>

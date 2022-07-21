@@ -43,16 +43,17 @@ let currentDateTime = document.querySelector(".dateTime");
 currentDateTime.innerHTML = formatDate(currentTime);
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  if (temperature > 0) {
-    temperature = `+${temperature}`;
+  celciusTemperature = response.data.main.temp;
+  if (celciusTemperature > 0) {
+    celciusTemperature = `+${Math.round(celciusTemperature)}`;
   }
-  document.querySelector("#temperature").innerHTML = `${temperature}`;
+  document.querySelector("#temperature").innerHTML = celciusTemperature;
   document.querySelector("#currentCity").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 }
@@ -78,26 +79,32 @@ inputPressEnter.addEventListener("keyup", function (event) {
   }
 });
 
-//let fakeTemp = 17;
-function convertTempToFahrenheit(event) {
+function showFahrenheitTemp(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 
-  let fahrenheitTemp = document.querySelector("#temperature");
-  fahrenheitTemp.innerHTML = `+${Math.round(
-    (fahrenheitTemp.value * 9) / 5 + 32
-  )}`;
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemp = Math.round((celciusTemperature * 9) / 5 + 32);
+  if (fahrenheitTemp > 0) {
+    fahrenheitTemp = `+${fahrenheitTemp}`;
+  }
+  temperatureElement.innerHTML = fahrenheitTemp;
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", convertTempToFahrenheit);
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-function convertTempToCelsius(event) {
+function showCelsiusTemp(event) {
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
   let celsiusTemp = document.querySelector("#temperature");
-  celsiusTemp.innerHTML = `+${celsiusTemp.value}`;
+  celsiusTemp.innerHTML = celciusTemperature;
 }
 let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", convertTempToCelsius);
+celsiusLink.addEventListener("click", showCelsiusTemp);
 
 function showCurrentPosition(position) {
   let latitude = position.coords.latitude;
@@ -114,5 +121,7 @@ function getCurrentPosition(event) {
 }
 let buttonCurrentLocation = document.querySelector("#currentLocation");
 buttonCurrentLocation.addEventListener("click", getCurrentPosition);
+
+let celciusTemperature = null;
 
 searchCity("Kharkiv");
