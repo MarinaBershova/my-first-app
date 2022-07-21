@@ -1,9 +1,7 @@
 h1 {
   font-weight: 400;
 }
-a {
-  color: black;
-}
+
 .container-fluid {
   margin: 0 auto;
   background-color: #c2f3fc;
@@ -100,16 +98,6 @@ i {
   font-size: 38px;
 }
 
-.cloudy {
-  z-index: 0;
-  font-size: 350px;
-  position: relative;
-  top: -230px;
-
-  display: flex;
-  align-items: bottom;
-  justify-content: center;
-}
 .windWet {
   font-size: 40px;
 }
@@ -139,6 +127,16 @@ i {
 .sign {
   font-size: 80px;
 }
+#description-icon {
+  z-index: 0;
+  font-size: 350px;
+  position: relative;
+  top: -200px;
+
+  display: flex;
+  align-items: bottom;
+  justify-content: center;
+}
 #currentCity {
   text-transform: capitalize;
   font-size: 90px;
@@ -162,4 +160,15 @@ i {
   display: block;
   margin: 0 auto;
   text-align: center;
+}
+#fahrenheit {
+  text-decoration: none;
+}
+#celsius {
+  text-decoration: none;
+}
+#units .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
 }

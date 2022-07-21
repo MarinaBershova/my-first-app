@@ -56,6 +56,23 @@ function showTemperature(response) {
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  let description = document.querySelector("#description").innerHTML;
+  let descriptionIcon = document.querySelector("#description-icon");
+  if (description === "Clear") {
+    descriptionIcon.innerHTML = "☀️";
+  } else if (description === "Clouds") {
+    descriptionIcon.innerHTML = "⛅";
+  } else if (description === "Drizzle") {
+    descriptionIcon.innerHTML = "🌧️";
+  } else if (description === "Rain") {
+    descriptionIcon.innerHTML = "🌦️";
+  } else if (description === "Thunderstorm") {
+    descriptionIcon.innerHTML = "⛈️";
+  } else if (description === "Snow") {
+    descriptionIcon.innerHTML = "🌨️";
+  } else if (description === "Mist") {
+    descriptionIcon.innerHTML = "🌫️";
+  }
 }
 
 function searchCity(city) {
