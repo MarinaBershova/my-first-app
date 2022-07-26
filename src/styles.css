@@ -110,7 +110,9 @@ i {
 .fa-gauge-simple-high {
   color: blue;
 }
-
+.card {
+  border-radius: 20px;
+}
 .card-body {
   height: 350px;
   width: 100%;
