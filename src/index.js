@@ -62,6 +62,33 @@ function displayForecast(response) {
       index == 30 ||
       index == 36
     ) {
+      let temperatureMax = forecastDay.main.temp_max;
+      if (temperatureMax > 0) {
+        temperatureMax = `+${Math.round(temperatureMax)}`;
+      }
+
+      let temperatureMin = forecastDay.main.temp_min;
+      if (temperatureMin > 0) {
+        temperatureMin = `+${Math.round(temperatureMin)}`;
+      }
+      let description = forecastDay.weather[0].main;
+
+      if (description === "Clear") {
+        descriptionIcon = "☀️";
+      } else if (description === "Clouds") {
+        descriptionIcon = "⛅";
+      } else if (description === "Drizzle") {
+        descriptionIcon = "🌧️";
+      } else if (description === "Rain") {
+        descriptionIcon = "🌦️";
+      } else if (description === "Thunderstorm") {
+        descriptionIcon = "⛈️";
+      } else if (description === "Snow") {
+        descriptionIcon = "🌨️";
+      } else if (description === "Mist") {
+        descriptionIcon = "🌫️";
+      }
+
       forecastHTML =
         forecastHTML +
         ` <div class="col-2">
@@ -69,14 +96,10 @@ function displayForecast(response) {
               <div class="card-body">
                 <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
                 <div class="card-text">
-                  <div class="sign">🌧️</div>
-                  <span class="temperature-max">${Math.round(
-                    forecastDay.main.temp_max
-                  )}</span>
+                  <div class="sign">${descriptionIcon}</div>
+                  <span class="temperature-max">${temperatureMax}</span>
 
-                  <span class="temperature-min">${Math.round(
-                    forecastDay.main.temp_min
-                  )}</span>
+                  <span class="temperature-min">${temperatureMin}</span>
                 </div>
               </div>
             </div>

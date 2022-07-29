@@ -129,6 +129,9 @@ i {
 .sign {
   font-size: 80px;
 }
+.temperature-min {
+  opacity: 0.5;
+}
 #description-icon {
   z-index: 0;
   font-size: 350px;
