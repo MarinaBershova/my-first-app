@@ -42,6 +42,60 @@ let currentTime = new Date();
 let currentDateTime = document.querySelector(".dateTime");
 currentDateTime.innerHTML = formatDate(currentTime);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.list;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row m-3 third">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (
+      index == 0 ||
+      index == 8 ||
+      index == 16 ||
+      index == 24 ||
+      index == 30 ||
+      index == 36
+    ) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
+                <div class="card-text">
+                  <div class="sign">🌧️</div>
+                  <span class="temperature-max">${Math.round(
+                    forecastDay.main.temp_max
+                  )}</span>
+
+                  <span class="temperature-min">${Math.round(
+                    forecastDay.main.temp_min
+                  )}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+              `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "a350fa7c4ad24a3f0d0e06b5f5f554bf";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   celciusTemperature = response.data.main.temp;
   if (celciusTemperature > 0) {
@@ -73,6 +127,7 @@ function showTemperature(response) {
   } else if (description === "Mist") {
     descriptionIcon.innerHTML = "🌫️";
   }
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
